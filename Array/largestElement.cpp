@@ -20,3 +20,6 @@ int main()
 }
 
 // TC: O(n)
+
+// Brute force
+    // sort and give the last element as largest
