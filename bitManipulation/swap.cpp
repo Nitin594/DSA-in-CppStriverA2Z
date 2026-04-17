@@ -20,3 +20,5 @@ int main()
 
     return 0;
 }
+
+// more methods like addition - subtraction / multiplication - division can also be used
