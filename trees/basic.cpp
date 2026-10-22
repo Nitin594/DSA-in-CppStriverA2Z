@@ -41,7 +41,26 @@ void postorder(Node *node)
     postorder(node->right);
     cout << node->data << endl;
 }
+// Traversal using BFS
+void BFS(Node *root)
+{
+    if (root == NULL)
+        return;
 
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty()){
+        Node* curr = q.front();
+        q.pop();
+        cout<<curr->data<<" ";
+        if(curr->left!=NULL){
+            q.push(curr->left);
+        }
+        if(curr->right!=NULL){
+            q.push(curr->right);
+        }
+    }
+}
 int main()
 {
     struct Node *root = new Node(2);
@@ -51,13 +70,16 @@ int main()
     root->left->right = new Node(5);
 
     // traversel using preorder
-    cout<<"---PREORDER---"<<endl;
+    cout << "---PREORDER---" << endl;
     preorder(root);
     // traversel using inorder
-    cout<<"---INORDER---"<<endl;
+    cout << "---INORDER---" << endl;
     inorder(root);
     // traversel using postorder
-    cout<<"---POSTORDER---"<<endl;
+    cout << "---POSTORDER---" << endl;
     postorder(root);
+    // traversal using BFS
+    cout << "---LEVEL-ORDER---" << endl;
+    BFS(root);
     return 0;
 }
